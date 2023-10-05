@@ -1,0 +1,59 @@
+/* Estilos para la tabla */
+
+body {
+    margin: 0 auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para las celdas de encabezado */
+  .table-header-group {
+    display: flex;
+    background-color: #675bdf;
+    font-weight: bold;
+  }
+  
+  .table-header-group .table-cell {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e98e65;
+    text-align: left;
+  }
+  
+  /* Estilos para filas impares en el cuerpo de la tabla */
+  .table-row-group .table-cell:nth-child(odd) {
+    background-color: #33a44d;
+  }
+
+  .table-row-group .table-cell:nth-child(even) {
+    background-color: #41badc;
+  }
+  
+  /* Estilos para las celdas en el cuerpo de la tabla */
+    .table-body-group .table-cell {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e98e65;
+    text-align: center;
+  }
+  
+  /* Estilos para las celdas en el pie de la tabla */
+  .table-footer-group .table-cell {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e98e65;
+    text-align: center;
+  }
+  
+  /* Estilos al pasar el mouse sobre una fila */
+   .table-body-group .table-row-group .table-cell:hover {
+    background-color: #a30891;
+  }
+
+   .table-footer-group .table-row-group .table-cell:hover {
+    background-color: #b3ef00;
+  }

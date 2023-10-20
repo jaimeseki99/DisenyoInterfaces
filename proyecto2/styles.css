@@ -1,5 +1,5 @@
 body {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
@@ -28,13 +28,6 @@ header .logo {
     margin-left: 20px;
 }
 
-header nav {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    align-items: center;
-    justify-self: end;
-}
-
 header nav ul {
     list-style: none;
     display: grid;
@@ -59,7 +52,7 @@ header nav ul {
     grid-area: sidebar;
 }
 
-.content aside .sidebar .title {
+.content .sidebar .title {
     font-size: 24px;
     border-bottom: 1px solid #ddd;
     white-space: nowrap;
@@ -67,7 +60,7 @@ header nav ul {
     padding: 0 0 10px 25px;
 }
 
-.content aside .sidebar ul {
+.content .sidebar ul {
     list-style: none;
     padding: 10px;
     margin: 10px;
@@ -75,12 +68,12 @@ header nav ul {
     grid-template-rows: repeat(4, auto);
 }
 
-.content aside .sidebar li {
+.content .sidebar li {
     padding: 10px;
     text-align: left;
 }
 
-.content aside .sidebar li button {
+.content .sidebar li button {
     background-color: lightgray;
     padding: 15px 20px;
     height: 3rem;
@@ -93,6 +86,7 @@ header nav ul {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
+    grid-area: main;
     grid-template-areas: "card card card card";
 }
 
@@ -111,6 +105,7 @@ header nav ul {
     object-fit: cover;
 }
 
+
 .content .container .card p {
     opacity: 0.6;
 }
@@ -121,4 +116,8 @@ footer {
     padding: 0 0 0 20px;
     opacity: 0.6;
     margin-top: 90px;
+}
+
+footer h1 {
+    font-style: italic;
 }

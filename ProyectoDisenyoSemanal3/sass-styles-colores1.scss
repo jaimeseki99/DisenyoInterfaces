@@ -1,0 +1,19 @@
+$main-color: white;
+$blue-light: #ADD8E6; // Azul claro
+$blue-navy: #000080; // Azul marino
+
+body {
+  background-color: $blue-light;
+}
+
+header .logo {
+  color: $blue-navy;
+}
+
+header nav ul li {
+  color: $blue-navy;
+}
+
+.content .container .card {
+  color: $main-color; 
+}

@@ -1,0 +1,19 @@
+$orange-light: #FFA500; // Naranja claro
+$orange-dark: #8B4513; // Naranja oscuro
+
+body {
+  background-color: $orange-light;
+}
+
+header .logo {
+  color: $orange-dark;
+}
+
+header nav ul li {
+  color: $orange-dark;
+}
+
+
+footer h1 {
+  color: $orange-dark;
+}

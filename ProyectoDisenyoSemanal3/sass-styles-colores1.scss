@@ -1,19 +1,32 @@
-$main-color: white;
-$blue-light: #ADD8E6; // Azul claro
-$blue-navy: #000080; // Azul marino
+// Declaración de las variables, que contendrán los colores base de la página
+$color1: white;
+$color2: #ADD8E6; // Azul claro
+$color3: #000080; // Azul marino
 
-body {
-  background-color: $blue-light;
+// Función para pintar el fondo de color azul claro
+@mixin pintarFondo() {
+    background-color: $color2;
 }
 
-header .logo {
-  color: $blue-navy;
+// Función para pintar los bordes de color azul oscuro
+@mixin pintarBorde() {
+    border-bottom: 1px solid $color3;
 }
 
-header nav ul li {
-  color: $blue-navy;
+// Función para que el texto se vea de color azul oscuro 
+@mixin pintarLetra() {
+    color: $color3;
 }
 
-.content .container .card {
-  color: $main-color; 
+// Función para que las cards se vean de color blanco con texto azul claro y borde azul oscuro
+@mixin pintarCard() {
+    background-color: $color1;
+    color: $color2;
+    border: 1px solid $color3;
+}
+
+// Función para que los botones tengan un color de fondo blanco con texto azul oscuro 
+@mixin pintarBotones() {
+    background-color: $color1;
+    color: $color3;
 }

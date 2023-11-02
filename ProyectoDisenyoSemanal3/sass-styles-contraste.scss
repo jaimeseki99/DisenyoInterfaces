@@ -1,19 +1,33 @@
-$orange-light: #FFA500; // Naranja claro
-$orange-dark: #8B4513; // Naranja oscuro
+// Declaración de las variables, que contendrán los colores de alto contraste
+$color1: #000; // Color negro
+$color2: #FFFF00; // Color amarillo
 
-body {
-  background-color: $orange-light;
+// Función para pintar el fondo de color negro
+@mixin pintarFondo() {
+        background-color: $color1;
 }
 
-header .logo {
-  color: $orange-dark;
+// Función para pintar los bordes de color amarillo
+@mixin pintarBorde() {
+        border-bottom: 1px solid $color2;
 }
 
-header nav ul li {
-  color: $orange-dark;
+// Función para que el texto se vea de color amarillo
+@mixin pintarLetra() {
+        color: $color2;
+}
+
+// Función para que las cards se vean de color negro con texto amarillo
+@mixin pintarCard() {
+        background-color: $color1;
+        color: $color2;
+        border: 1px solid $color2;
+}
+
+// Función para que los botones tengan un color de fondo amarillo 
+@mixin pintarBotones() {
+        background-color: $color2;
+        color: $color1;
 }
 
 
-footer h1 {
-  color: $orange-dark;
-}

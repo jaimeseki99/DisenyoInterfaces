@@ -1,11 +1,27 @@
-@use 'sass-styles-contraste.scss';
+// Aquí definimos las importaciones para poder usar los estilos definidos en estos dos archivos
+// y así poder generar dos archivos css
+@use 'sass-styles-colores1' as Normal;
+@use 'sass-styles-contraste' as Contraste;
+@Contraste.pintarFondo;
+@Contraste.pintarBorde;
+@Contraste.pintarLetra;
+@Contraste.pintarCard;
+@Contraste.pintarBotones;
+@Normal.pintarFondo;
+@Normal.pintarBorde;
+@Normal.pintarLetra;
+@Normal.pintarCard;
+@Normal.pintarBotones;
 
+
+// Aquí definimos las variables cuyo uso se repite a lo largo de todo el código
 $font-family: Arial, Helvetica, sans-serif;
-$border-color: #ddd;
 $padding-unit: 20px;
 $margin-unit: 20px;
 
-
+// Aquí definimos los mixins
+// he creado 1 para aplicar establecer el margen y el padding en 0
+// y otro para establecer el estilo de la fuente
 @mixin reset-margin-padding {
   margin: 0;
   padding: 0;
@@ -15,115 +31,125 @@ $margin-unit: 20px;
   font-family: $font-family;
 }
 
+// Estilos para el cuerpo 
 body {
-  @include reset-margin-padding;
-  width: 100%;
-  height: 100%;
-  @include custom-font($font-family);
+  @include reset-margin-padding; // Uso del mixing para centrar el contenido
+  width: 100%; // Definimos ancho completo
+  height: 100%; // Definimos altura completa
+  @include custom-font($font-family); // Uso del mixing para definir la fuente
+  // background-color: sass-styles-contraste.$color1;  Establecemos el color del fondo, que es una variable importada de uno de los archivos
+  @include Contraste.pintarFondo; 
+}
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: $padding-unit 0;
-    border-bottom: 1px solid $border-color;
+// Estilos para los elementos del header
 
-    .logo {
-      font-weight: bold;
-      font-style: italic;
-      margin-left: $margin-unit;
-    }
+header {
+  display: flex; // Aplicamos flexbox
+  justify-content: space-between; // Definimos espaciado entre elementos
+  align-items: center; // Centramos los elementos verticalmente
+  width: 100%; // Definimos que el header ocupe todo el ancho de la página
+  padding: $padding-unit 0; // Aplicamos padding en la parte superior e inferior del header
+  @include Contraste.pintarBorde; // Establecemos el color y el ancho del borde mediante el mixin importado
+  .logo {
+    font-weight: bold; // Las dos primeras propiedades se utilizan para hacer que el logo del header se muestre en negrita y cursiva
+    font-style: italic;
+    margin-left: $margin-unit; // Hacemos uso de variable para definir margen izquierdo del elemento
+    @include Contraste.pintarLetra; // Definimos color del texto mediante el mixin importado
+  }
 
-    nav {
-      display: flex;
-      align-items: center;
-      margin-right: $margin-unit;
+  nav {
+    display: flex;  // Aplicamos flexbox
+    align-items: center; // Centramos los elementos verticalmente
+    margin-right: $margin-unit; // Definimos margen derecho del elemento
 
-      ul {
-        list-style: none;
-        display: flex;
+    ul {
+      list-style: none; // Propiedad para que los elementos de la lista no tengan ningún estilo
+      display: flex; // Aplicamos flexbox
 
-        li {
-          margin-left: $margin-unit;
-        }
+      li {
+        margin-left: $margin-unit; // Definimos margen izquierdo
+        @include Contraste.pintarLetra; // Definimos color de los elementos de la lista mediante el mixin importado
       }
     }
   }
 }
 
 .content {
-  display: flex;
+  display: flex; // Aplicamos flexbox y alineamos los elementos al inicio
   align-items: flex-start;
 
   aside .sidebar {
-    display: flex;
+    display: flex; // Aplicamos flexbox y orientamos los elementos verticalmente
     flex-direction: column;
-    position: relative;
-    top: 1.5rem;
+    position: relative; // Definimos posición relativa
+    top: 1.5rem; // Definimos el espacio superior y el ancho del elemento
     width: 20%;
 
     .title {
-      display: block;
-      margin-left: $margin-unit;
-      font-size: 24px;
-      width: 100%;
-      border-bottom: 1px solid $border-color;
+      display: block; // Mostramos el elemento como bloque
+      margin-left: $margin-unit; // Definimos margen izquierdo
+      font-size: 24px; // Definimos tamaño de la fuente
+      width: 100%; // Definimos el ancho del elemento para que ocupe la totalidad del ancho del elemento padre
+      @include Contraste.pintarBorde; // Definimos estilos del borde mediante el mixin importado
       border-bottom-width: 100%;
-      white-space: nowrap;
+      white-space: nowrap; // Para evitar que haya un salto de línea del título
+      @include Contraste.pintarLetra; // Definimos el color del título mediante el mixin importado
     }
 
     ul {
-      list-style: none;
-      padding: 10px;
+      list-style: none; // Propiedad para que los elementos de la lista no tengan ningún estilo
+      padding: 10px; // Establecemos padding global y márgenes
       margin: 10px 10px;
-      display: flex;
+      display: flex; // Aplicamos flexbox y lo orientamos verticalmente
       flex-direction: column;
 
       li {
-        padding: 10px;
+        padding: 10px; // Establecemos padding
 
         button {
-          padding: 15px 20px;
+          @include Contraste.pintarBotones; // Definimos los colores del fondo y el texto de los botones mediante el mixin importado
+          padding: 15px 20px; // Definimos padding, altura y ancho de los botones
           height: 3rem;
           width: 12rem;
-          border-color: rgba(0, 0, 0, 0.2);
+          border-color: rgba(0, 0, 0, 0.2); // Definimos el color del borde
         }
       }
     }
   }
 
   .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: $padding-unit;
-    margin-left: 20%;
-    width: 80%;
+    display: flex; // Aplicamos flexbox
+    flex-wrap: wrap; // Ajustamos la envoltura 
+    justify-content: space-between; // Distribuimos el espacio
+    padding: $padding-unit; // Añadimos relleno
+    margin-left: 20%; // Añadimos margen izquierdo del 20%
+    width: 80%; // Designamos un ancho del 80% al elemento
 
     .card {
-      flex-basis: calc(25% - $margin-unit);
-      border: 1px solid $border-color;
-      margin-bottom: $margin-unit;
-      padding: 0;
-      width: 250px;
+      flex-basis: calc(25% - $margin-unit); // Definimos tamaño flexible de las cards
+      @include Contraste.pintarCard; // Definimos los estilos de colores y del borde de las cards
+      @include Contraste.pintarBorde;
+      margin-bottom: $margin-unit; // Añadimos un margen inferior
+      padding: 0; // Definimos un padding en todas direcciones
+      width: 250px; //Definimos un ancho y una altura determinados
       height: 250px;
 
       img {
-        width: 100%;
+        width: 100%; // Hacemos que la imagen ocupe el 100% del ancho de la card y que la altura se ajuste al tamaño de la card
         height: fit-content;
       }
 
       p {
-        opacity: 0.6;
+        opacity: 0.6; // Definimos que el elemento tenga una opacidad del 60%
       }
     }
   }
 }
 
 footer h1 {
-  font-style: italic;
-  opacity: 0.6;
-  margin-left: $margin-unit;
+  @include Contraste.pintarLetra; // Definimos el color 
+  font-style: italic; // Aplicamos estilo para que el texto del footer se vea en cursiva
+  opacity: 0.6; // Definimos que tenga una opacidad del 60%
+  margin-left: $margin-unit; // Añadimos un margen izquierdo y un margen superior
   margin-top: 90px;
 }

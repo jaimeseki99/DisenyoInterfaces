@@ -1,54 +1,43 @@
-body {
-  background-color: #ADD8E6;
-}
-
-header .logo {
-  color: #000080;
-}
-
-header nav ul li {
-  color: #000080;
-}
-
-header nav ul li button {
-  color: white;
-}
-
-.content .container .card {
-  color: white;
-}
-
+@Normal .pintarFondo;
+@Normal .pintarBorde;
+@Normal .pintarLetra;
+@Normal .pintarCard;
+@Normal .pintarBotones;
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #ADD8E6;
 }
-body header {
+
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 20px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #000080;
 }
-body header .logo {
+header .logo {
   font-weight: bold;
   font-style: italic;
   margin-left: 20px;
+  color: #000080;
 }
-body header nav {
+header nav {
   display: flex;
   align-items: center;
   margin-right: 20px;
 }
-body header nav ul {
+header nav ul {
   list-style: none;
   display: flex;
 }
-body header nav ul li {
+header nav ul li {
   margin-left: 20px;
+  color: #000080;
 }
 
 .content {
@@ -67,9 +56,10 @@ body header nav ul li {
   margin-left: 20px;
   font-size: 24px;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #000080;
   border-bottom-width: 100%;
   white-space: nowrap;
+  color: #000080;
 }
 .content aside .sidebar ul {
   list-style: none;
@@ -82,6 +72,8 @@ body header nav ul li {
   padding: 10px;
 }
 .content aside .sidebar ul li button {
+  background-color: white;
+  color: #000080;
   padding: 15px 20px;
   height: 3rem;
   width: 12rem;
@@ -97,7 +89,10 @@ body header nav ul li {
 }
 .content .container .card {
   flex-basis: calc(25% - 20px);
-  border: 1px solid #ddd;
+  background-color: white;
+  color: #ADD8E6;
+  border: 1px solid #000080;
+  border-bottom: 1px solid #000080;
   margin-bottom: 20px;
   padding: 0;
   width: 250px;
@@ -112,6 +107,7 @@ body header nav ul li {
 }
 
 footer h1 {
+  color: #000080;
   font-style: italic;
   opacity: 0.6;
   margin-left: 20px;

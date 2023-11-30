@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compraventa de Videojuegos</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Archivo Sass compilado -->
+</head>
+<body>
+
+  <!-- Menú navegable -->
+
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+            <strong>Seki Shop</strong>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+            <a href="#" class="navbar-item">INICIO</a>
+            <a href="#" class="navbar-item">CATÁLOGO</a>
+            <a href="#" class="navbar-item">NUESTRA HISTORIA</a>
+            <a href="#" class="navbar-item">UBICACIÓN</a>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a href="#" class="button is-primary" onclick="toggleModal('loginModal')"><strong>INICIAR SESIÓN</strong></a>
+                    <a href="#" class="button is-light"><strong>REGISTRARSE</strong></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+  <!-- Contenedor principal -->
+  <div class="container">
+
+    <div class="modal is-widescreen" id="loginModal">
+      <div class="modal-background"></div>
+      <div class="modal-content is-primary">
+        <div class="box has-text-centered">
+          <figure class="image is-128x128 is-centered">
+            <img src="imagenes/6681204.png" style="margin: auto;">
+          </figure>
+          <form>
+            <div class="field">
+              <div class="control has-icons-left">
+                <input class="input is-large" type="email" placeholder="Introduce tu email" autofocus="">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+  
+            <div class="field">
+              <div class="control has-icons-left">
+                <input class="input is-large" type="password" placeholder="Tu contraseña">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="checkbox">
+                <input type="checkbox">
+                Recordar
+              </label>
+            </div>
+            <button class="button is-success is-info is-large is-fullwidth" onclick="toggleModal()">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+          </form>
+          <p class="has-text-info has-text-centered">
+            <a href="#">Crear cuenta</a> &nbsp;·&nbsp;
+            <a href="#">He olvidado la contraseña</a> &nbsp;·&nbsp;
+            <a href="#">¿Necesita ayuda?</a>
+          </p>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close" onclick="document.getElementById('loginModal').classList.toggle('is-active')"></button>
+    </div>
+  
+
+    <!-- Section que muestra el título -->
+    <section class="section">
+      <div class="content is-large has-text-centered">
+        <h1 class="title">Juegos más vendidos</h1>
+      </div>
+    </section>
+
+ 
+
+      <!-- Notificación -->
+    <div class="notification is-info">
+      <button class="delete" onclick="this.parentElement.style.display='none'"></button>
+        Información importante: ¡Oferta especial por tiempo limitado para usuarios registrados!
+    </div>
+
+   
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <ul>
+        <li class="is-active"><a href="#">Todos</a></li>
+        <li><a href="#">PS5</a></li>
+        <li><a href="#">PS4</a></li>
+        <li><a href="#">Xbox One</a></li>
+        <li><a href="#">Xbox Series</a></li>
+        <li><a href="#">Nintendo Switch</a></li>
+      </ul>
+    </div>
+
+    <!-- Sección principal -->
+    <section class="section">
+      <!-- Filas de Cards -->
+      <div class="columns is-multiline">
+        <!-- Información del primer videojuego. Se ha empleado una distribución para que cada fila contenga 3 cards cuando está en desktop, 2 en tablet y 1 en móvil. Cada column contiene una card que muestra información relacionada al videojuego -->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div class="card">
+            <a href="spiderman.html">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="imagenes/spiderman2.avif" alt="Spiderman">
+                </figure>
+              </div>
+            </a>
+            <div class="card-content">
+              <p class="title is-4">Spiderman 2</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Acción, Superhéroes</p>
+              <p class="subtitle is-6">Precio Compra: 39.99€</p>
+              <p class="subtitle is-6">Precio Venta: 59.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span</a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Información del segundo videojuego, siguiendo la misma estructura -->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/gowragnarok.webp" alt="God of War: Ragnarok">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">God of War Ragnarok</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Acción, Aventura</p>
+              <p class="subtitle is-6">Precio Compra: 34.99€</p>
+              <p class="subtitle is-6">Precio Venta: 59.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span</a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Información del tercer videojuego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile" data-consolas="ps4 ps5">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/lastofuspart1.webp" alt="Last of Us: Part 1">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">The Last of Us: Part I</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Acción</p>
+              <p class="subtitle is-6">Precio Compra: 30.00€</p>
+              <p class="subtitle is-6">Precio Venta: 59.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Información del cuarto videojuego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile" >
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/eafc24.jpeg" alt="EAFC 24">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">EAFC 24</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5, Nintendo Switch, Xbox One, Xbox Series</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Deportes</p>
+              <p class="subtitle is-6">Precio Compra: 19.99€</p>
+              <p class="subtitle is-6">Precio Venta: 49.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Información del quinto videojuego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/nba2k24.avif" alt="NBA 2K24">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">NBA 2K24</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5, Nintendo Switch, Xbox One, Xbox Series</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Deportes</p>
+              <p class="subtitle is-6">Precio Compra: 19.99€</p>
+              <p class="subtitle is-6">Precio Venta: 49.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Información del sexto videojuego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/pokemonescarlataypokemonpurpura.jpeg" alt="Pokémon Escarlata y Pokémon Púrpura">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Pokémon Escarlata y Pokémon Púrpura</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: Nintendo Switch</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Aventuras, Monstruos, RPG</p>
+              <p class="subtitle is-6">Precio Compra: 19.99€</p>
+              <p class="subtitle is-6">Precio Venta: 59.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Información del séptimo juego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/baldursgate.avif" alt="Baldur's Gate 3">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Baldur's Gate III</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS5</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Rol, Aventura, Estrategia</p>
+              <p class="subtitle is-6">Precio Compra: 29.99€</p>
+              <p class="subtitle is-6">Precio Venta: 59.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Información del octavo juego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/ghostoftsushima.jpeg" alt="Ghost of Tsutshima">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Ghost of Tsushima</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Acción, Aventura</p>
+              <p class="subtitle is-6">Precio Compra: 24.99€</p>
+              <p class="subtitle is-6">Precio Venta: 54.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Información del último juego-->
+        <div class="column is-one-third-desktop is-half-tablet is-full-mobile" data-consolas="ps4 ps5">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="imagenes/resident-evil4-remake.webp" alt="Resident Evil 4 Remake">
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Resident Evil 4 Remake</p>
+              <p class="subtitle is-6 is-hidden-mobile">Plataforma: PS4, PS5</p>
+              <p class="subtitle is-6 is-hidden-touch">Género: Acción</p>
+              <p class="subtitle is-6">Precio Compra: 29.99€</p>
+              <p class="subtitle is-6">Precio Venta: 54.99€</p>
+              <!-- Botones Comprar y Vender -->
+              <div class="buttons is-hidden-mobile">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span><span>  Comprar</span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span><span>  Vender</span></a>
+              </div>
+              <div class="buttons is-hidden-desktop is-hidden-tablet">
+                <a class="button is-success" onclick="comprar()"><span class="icon"><i class="fas fa-shopping-cart"></i></span></a>
+                <a class="button is-danger" onclick="vender()"><span class="icon"><i class="fas fa-dollar-sign"></i></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+<!-- Pie de página -->
+<footer class="footer has-background-dark has-text-link">
+  <div class="content">
+    <!-- Utilizando un nivel (level) para alinear componentes -->
+    <div class="level">
+      <!-- Componente a la izquierda -->
+      <div class="level-left">
+        <div class="level-item">
+          <!-- Iconos de redes sociales -->
+          <a href="#" class="icon is-large"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="icon is-large"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="icon is-large"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Componente al centro -->
+      <div class="level-item">
+        <!-- Enlace a Política de Privacidad -->
+        <a href="#">Política de Privacidad</a>
+      </div>
+
+      <!-- Componente a la derecha -->
+      <div class="level-right">
+        <div class="level-item">
+          <!-- Enlace a Términos -->
+          <a href="#">Términos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+
+  <script>
+    // Funciones para mostrar alerts de compra y venta realizada
+    function comprar() {
+      alert('¡Compra realizada!');
+    }
+
+    function vender() {
+      alert('¡Venta realizada!');
+    }
+
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.toggle('is-active');
+    }
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+ 
+         if ($navbarBurgers.length > 0) {
+             $navbarBurgers.forEach(function ($el) {
+                 $el.addEventListener('click', function () {
+                     const target = $el.dataset.target;
+                     const $target = document.getElementById(target);
+ 
+                     $el.classList.toggle('is-active');
+                     $target.classList.toggle('is-active');
+                 });
+             });
+         }
+     });
+ </script>
+
+
+
+</body>
+</html>

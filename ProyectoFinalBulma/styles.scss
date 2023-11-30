@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+
+$caribbean-green-50: #ecfdf7;
+$caribbean-green-100: #d1faea;
+$caribbean-green-200: #a6f4d9;
+$caribbean-green-300: #6de8c5;
+$caribbean-green-400: #34d5ad;
+$caribbean-green-500: #0ebb96;
+$caribbean-green-600: #03987b;
+$caribbean-green-700: #037966;
+$caribbean-green-800: #056051;
+$caribbean-green-900: #054f44;
+$caribbean-green-950: #022c27;
+
+$blue-marguerite-50: #f6f5fd;
+$blue-marguerite-100: #eeedfa;
+$blue-marguerite-200: #dedef6;
+$blue-marguerite-300: #c7c4ee;
+$blue-marguerite-400: #a8a2e3;
+$blue-marguerite-500: #8a7cd6;
+$blue-marguerite-600: #7d67cb;
+$blue-marguerite-700: #654cb5;
+$blue-marguerite-800: #554097;
+$blue-marguerite-900: #47367c;
+$blue-marguerite-950: #2b2154;
+
+$beige: #EFF0EB;
+
+$family-sans-serif: 'Montserrat', sans-serif;
+$primary: $blue-marguerite-600;
+$info: $blue-marguerite-400;
+$dark: $blue-marguerite-800;
+$white: $blue-marguerite-50;
+$light: $caribbean-green-100;
+$success: $blue-marguerite-300;
+$danger: $caribbean-green-300;
+$link: $caribbean-green-200;
+$body-background-color: $beige;
+
+$size-4: 1.6rem;
+$size-6: 1.15rem;
+
+@import "bulma/bulma.sass";
+
